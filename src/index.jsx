@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
+
+import './assets/sass/main.scss';
 
 ReactDOM.render(
-    <h3>Frontend Challenge</h3>, 
+    <App />, 
     document.getElementById('root')
 );
