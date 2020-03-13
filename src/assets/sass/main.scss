@@ -2,6 +2,8 @@
 @import 'abstracts/mixins';
 
 @import 'vendor/bootstrap';
+@import 'vendor/font-awesome';
+@import 'vendor/react-toastify';
 
 @import 'base/typography';
 
@@ -14,5 +16,6 @@
 
 @import 'pages/home';
 @import 'pages/cart';
+@import 'pages/product';
 
 @import 'themes/default';

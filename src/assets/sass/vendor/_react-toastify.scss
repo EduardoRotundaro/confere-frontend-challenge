@@ -1,0 +1,7 @@
+// $rt-color-default: $light-color;
+// $rt-color-info: $info-color;
+$rt-color-success: $success-color;
+$rt-color-warning: $warning-color;
+$rt-color-error: $danger-color;
+
+@import '../../../../node_modules/react-toastify/scss/main.scss';
