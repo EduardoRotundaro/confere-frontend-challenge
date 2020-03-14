@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
+import Card from '../../components/Card';
 import {fetchProducts} from '../../api/services';
 import {updatePageTitle} from '../../other/utils';
 
@@ -20,17 +21,15 @@ export default function Home() {
     function renderProducts() {
         return products.map((product) => (
             <div className="col-xl-4" key={product.code_color}>
-                <Link to={`/product/${product.code_color}`}>
-                    <div className="card">
-                        <img src={product.image} className="card-img-top" alt="" />
-                        <div className="card-body">
-                            <p className="card-text text-center">{product.name}</p>
-                            <h5 className="card-title">{product.actual_price}</h5>
-                            <h5 className="card-title">{product.regular_price}</h5>
-                            <p className="card-text">{product.installments}</p>
-                        </div>
-                    </div>
-                </Link>
+                <Card
+                    id={product.code_color} 
+                    imageUrl={product.image} 
+                    name={product.name} 
+                    actualPrice={product.actual_price} 
+                    regularPrice={product.regular_price} 
+                    installments={product.installments} 
+                    discountPercentage={product.discount_percentage}
+                />
             </div>
         ));
     }
