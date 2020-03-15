@@ -1,16 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-function Loader() {
+export default function Loader() {
     return (
-        <></>
+        <div className="spinner-grow text-primary" role="status">
+            <span className="sr-only">Carregando...</span>
+        </div>
     );
 }
-
-Loader.propTypes = {
-};
-
-Loader.defaultProps = {
-};
-
-export default Loader;

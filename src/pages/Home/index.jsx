@@ -1,26 +1,28 @@
 import React, {useState, useEffect} from 'react';
 import Card from '../../components/Card';
 import If from '../../components/If';
+import Loader from '../../components/Loader';
 import {fetchProducts} from '../../api/services';
 import {updatePageTitle} from '../../other/utils';
 
 export default function Home() {
-    const [products, updateProducts] = useState([]);
+    const [products, updateProducts] = useState(null);
     const [filter, updateFilter] = useState('');
 
     async function fetchData(category=null) {
         try {
-            updateProducts([]);
+            updateProducts(null);
             updateFilter(category || '');
             const products = await fetchProducts(category);
             updateProducts(products);
         } catch (error) {
+            updateProducts([]);
             console.error(error.message);
         }
     }
 
     function renderProducts() {
-        return products.map((product) => (
+        return products && products.map((product) => (
             <div className="col-xl-4" key={product.code_color}>
                 <Card
                     id={product.code_color} 
@@ -83,9 +85,18 @@ export default function Home() {
                             </button>   
                         </div>
                     </div>
-                    <div className="row justify-content-center">
-                        {renderProducts()}
-                    </div>
+                    <If condition={products}>
+                        <div className="row justify-content-center">
+                            {renderProducts()}
+                        </div>
+                    </If>
+                    <If condition={!products}>
+                        <div className="row justify-content-center">
+                            <div className="col-auto">
+                                <Loader />
+                            </div>
+                        </div>
+                    </If>
                 </div>
             </section>
         </main>
