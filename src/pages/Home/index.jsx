@@ -1,18 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
 import Card from '../../components/Card';
+import If from '../../components/If';
 import {fetchProducts} from '../../api/services';
 import {updatePageTitle} from '../../other/utils';
 
 export default function Home() {
-    const dispatch = useDispatch();
     const [products, updateProducts] = useState([]);
+    const [filter, updateFilter] = useState('');
 
-    async function fetchData() {
+    async function fetchData(category=null) {
         try {
-            const response = await fetchProducts();
-            updateProducts(response.data.products);
+            updateProducts([]);
+            updateFilter(category || '');
+            const products = await fetchProducts(category);
+            updateProducts(products);
         } catch (error) {
             console.error(error.message);
         }
@@ -29,6 +30,8 @@ export default function Home() {
                     regularPrice={product.regular_price} 
                     installments={product.installments} 
                     discountPercentage={product.discount_percentage}
+                    sizes={product.sizes}
+                    available={product.on_sale}
                 />
             </div>
         ));
@@ -43,6 +46,43 @@ export default function Home() {
         <main>
             <section>
                 <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-12">
+                            <h1 className="display-4">
+                                Feminino
+                                <If condition={filter}>
+                                    <small>&nbsp;\&nbsp;{filter==='clothes'? 'Roupas' : 'Acessórios'}</small>
+                                </If>
+                            </h1>
+                        </div>
+                        <div className="col-xl-4">
+                            <button 
+                                type="button" 
+                                className="btn btn-sm btn-block btn-primary"
+                                onClick={() => fetchData('clothes')}
+                            >
+                                Roupas
+                            </button>
+                        </div>
+                        <div className="col-xl-4">
+                            <button 
+                                type="button" 
+                                className="btn btn-sm btn-block btn-primary"
+                                onClick={() => fetchData('accessories')}
+                            >
+                                Acessórios
+                            </button>
+                        </div>
+                        <div className="col-xl-4">
+                            <button 
+                                type="button" 
+                                className="btn btn-sm btn-block btn-primary"
+                                onClick={() => fetchData()}
+                            >
+                                Ver tudo
+                            </button>   
+                        </div>
+                    </div>
                     <div className="row justify-content-center">
                         {renderProducts()}
                     </div>

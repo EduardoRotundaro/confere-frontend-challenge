@@ -1,11 +1,15 @@
 import React, {useState, useEffect} from 'react';
-import {useParams} from 'react-router-dom';
+import {Redirect, useParams} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
 import {getProductById} from '../../api/services';
 import {updatePageTitle} from '../../other/utils';
+import {addItemToCartStore} from '../../redux/actions/cart';
 
-export default function Home() {
+export default function Product() {
     const { id } = useParams();
+    const dispatch = useDispatch();
     const [product, setProduct] = useState({});
+    const [redirect, needRedirect] = useState(false);
 
     async function fetchData() {
         try {
@@ -50,7 +54,23 @@ export default function Home() {
         ));
     }
 
-    return (
+    function addItemToCart() {
+        const {
+            color,
+            installments,
+            sizes,
+            codeColor: code_color,
+            onSale: on_sale,
+            regularPrice: regular_price,
+            discountPercentage: discount_percentage,
+            ...importantInfo
+        } = product;
+
+        dispatch(addItemToCartStore(importantInfo));
+        needRedirect(true);
+    }
+
+    return redirect? (<Redirect to="/cart" />) : (
         <main>
             <section>
                 <div className="container">
@@ -75,7 +95,13 @@ export default function Home() {
                                                     {renderProductSizesOptions()}
                                                 </select>
                                             </div>
-                                            <button type="button" className="btn btn-block btn-primary">Adicionar ao carrinho</button>
+                                            <button 
+                                                type="button" 
+                                                className="btn btn-block btn-primary"
+                                                onClick={addItemToCart}
+                                            >
+                                                Adicionar ao carrinho
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

@@ -1,8 +1,11 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import logo from '../../assets/images/logo512.png';
 
 export default function Header() {
+    const itemsInCart = useSelector((state) => (state.cart? state.cart.products.length : 0));
+
     return (
         <header>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -19,6 +22,7 @@ export default function Header() {
                         </span>
                         <Link to="/cart" className="navbar-icon-button">
                             <i className="fa fa-2x fa-shopping-cart"></i>
+                            <span className="badge badge-light">{itemsInCart}</span>
                         </Link>
                     </div>
                 </div>
