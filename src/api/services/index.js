@@ -7,10 +7,14 @@ function sortByAvailability(a, b) {
     return 0;
 }
 
+function getProductsData() {
+    return axios.get(DB_URL);
+}
+
 export function fetchProducts(category) {
     return new Promise(async (resolve, reject) => {
         try {
-            const products = await axios.get(DB_URL);
+            const products = await getProductsData();
             let response = products.data.products;
             if(category==='clothes') response = products.data.products.filter((p) => !PRODUCTS_FILTER.ACCESSORIES.includes(p.code_color));
             else if (category==='accessories') response = products.data.products.filter((p) => PRODUCTS_FILTER.ACCESSORIES.includes(p.code_color));
@@ -22,11 +26,10 @@ export function fetchProducts(category) {
 }
 
 export function getProductById(id) {
-    // simulates a product fetch in API
     return new Promise(async (resolve, reject) => {
         try {
-            const products = await fetchProducts();
-            const response = products.filter((product) => product.code_color===id)[0];
+            const products = await getProductsData();
+            const response = products.data.products.filter((product) => product.code_color===id)[0];
             resolve(response);
         } catch (error) {
             reject(error);

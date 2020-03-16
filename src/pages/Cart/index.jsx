@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import If from '../../components/If';
@@ -30,9 +30,7 @@ export default function Cart() {
     }
 
     function getTotalPrice() {
-        // R$ 119,90
-        const stringPrices = products.map((p) => p.actualPrice);
-        const floatPrices = stringPrices.map((p) => parseFloat(p.split(' ')[1].replace(',','.')));
+        const floatPrices = products.map((p) => p.actualPrice).map((p) => parseFloat(p.split(' ')[1].replace(',','.')));
         const floatTotal = floatPrices.length? floatPrices.reduce((total, num) => (total + num)) : 0.0;
         return `R$ ${floatTotal.toFixed(2)}`;
     }

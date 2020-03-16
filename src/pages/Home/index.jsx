@@ -40,7 +40,7 @@ export default function Home() {
     }
 
     useEffect(() => {
-        updatePageTitle('Produtos');
+        updatePageTitle('Produtos');        
         fetchData();
     }, []);
 

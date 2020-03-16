@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import logo from '../../assets/images/logo512.png';
+import logo from '../../assets/images/logo_w.png';
 
 export default function Header() {
     const itemsInCart = useSelector((state) => (state.cart? state.cart.products.length : 0));

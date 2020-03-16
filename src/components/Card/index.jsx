@@ -18,15 +18,6 @@ function Card({
 }) {
     const [image, setImage] = useState(null);
 
-    async function checkifImageURLisValid() {
-        let url = await isAValidImageURL(imageUrl)? imageUrl : productPhotoFallback;
-        setImage(url);
-    }
-
-    useEffect(() => {
-        checkifImageURLisValid();
-    }, []);
-
     function renderSizes() {
         return sizes.map(({size, available}) => {
             if(available) return (<span className="badge badge-primary" key={size}>{size}</span>);
@@ -34,10 +25,19 @@ function Card({
         });
     }
 
+    useEffect(() => {
+        async function checkifImageURLisValid() {
+            let url = await isAValidImageURL(imageUrl)? imageUrl : productPhotoFallback;
+            setImage(url);
+        }
+        
+        checkifImageURLisValid();
+    }, [imageUrl]);
+
     return (
         <div className="card h-100">
             <Link to={`/product/${id}`}>
-                <img src={image} className="card-img-top" alt="" />
+                <img src={image} className="card-img-top" alt={name} />
             </Link>
             <div className="card-body">
                 <p className="card-text text-center">{name}</p>

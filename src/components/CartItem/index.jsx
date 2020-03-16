@@ -13,7 +13,7 @@ function CartItem({
         <div className="card">
             <div className="row no-gutters">
                 <div className="col-xl-4">
-                    <img src={image} className="card-img" alt="..." />
+                    <img src={image} className="card-img" alt={name} />
                 </div>
                 <div className="col-xl-8">
                     <div className="card-body">
