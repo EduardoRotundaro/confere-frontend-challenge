@@ -2,8 +2,8 @@ import axios from 'axios';
 import {DB_URL, PRODUCTS_FILTER} from '../../other/constants';
 
 function sortByAvailability(a, b) {
-    if(a.on_sale && !b.on_sale) return 1;
-    if(!a.on_sale && b.on_sale) return -1;
+    if(a.on_sale && !b.on_sale) return -1;
+    if(!a.on_sale && b.on_sale) return 1;
     return 0;
 }
 

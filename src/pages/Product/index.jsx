@@ -32,6 +32,7 @@ export default function Product() {
                 sizes
             } = await getProductById(id);
             updatePageTitle(name);
+            checkifImageURLisValid(image);
             setProduct({
                 name,
                 color,
@@ -49,15 +50,14 @@ export default function Product() {
         }
     }
 
-    async function checkifImageURLisValid() {
-        let url = await isAValidImageURL(product.image)? product.image : productPhotoFallback;
+    async function checkifImageURLisValid(image) {
+        let url = await isAValidImageURL(image)? image : productPhotoFallback;
         setImage(url);
     }
 
     useEffect(() => {
         updatePageTitle('...');
         fetchData();
-        checkifImageURLisValid();
     }, []);
 
     function renderProductSizesOptions() {
@@ -77,18 +77,15 @@ export default function Product() {
     function addItemToCart() {
         trySubmit(true);
         if(!selectedSize) return;
-        const {
-            color,
-            installments,
-            sizes,
-            codeColor: code_color,
-            onSale: on_sale,
-            regularPrice: regular_price,
-            discountPercentage: discount_percentage,
-            ...importantInfo
-        } = product;
-
-        dispatch(addItemToCartStore(importantInfo));
+        dispatch(addItemToCartStore(
+            {
+                codeColor: product.codeColor,
+                name: product.name,
+                actualPrice: product.actualPrice,
+                image: productImage,
+                size: selectedSize,
+            }
+        ));
         needRedirect(true);
     }
 

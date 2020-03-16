@@ -35,7 +35,7 @@ function Card({
     }
 
     return (
-        <div className="card">
+        <div className="card h-100">
             <Link to={`/product/${id}`}>
                 <img src={image} className="card-img-top" alt="" />
             </Link>
@@ -52,7 +52,7 @@ function Card({
                     {actualPrice}
                 </h5>
                 <p className="card-text">{installments}</p>
-                <If condition={available}>
+                <If condition={!available}>
                     <p className="card-text">Indisponível</p>
                 </If>
                 <p>
