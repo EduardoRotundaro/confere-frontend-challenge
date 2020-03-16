@@ -105,15 +105,15 @@ export default function Product() {
                                             <h3 className="display-5">
                                                 {product.name}
                                             </h3>
+                                            <If condition={product.discountPercentage}>
+                                                <h3><span className="badge badge-success">{product.discountPercentage} OFF</span></h3>
+                                            </If>
                                             <If condition={product.actualPrice!==product.regularPrice}>
                                                 de <span>{product.regularPrice}</span>
                                             </If>
                                             <p>
                                                 por <span>{product.actualPrice}</span>
                                             </p>
-                                            <If condition={product.discountPercentage}>
-                                                <h3><span className="badge badge-success">{product.discountPercentage} OFF</span></h3>
-                                            </If>
                                             <p className="card-text">{product.installments}</p>
                                             <p className="card-text">
                                                 <strong>Cor:</strong><br />

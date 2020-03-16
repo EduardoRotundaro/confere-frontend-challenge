@@ -45,7 +45,7 @@ export default function Home() {
     }, []);
 
     return (
-        <main>
+        <main className="home">
             <section>
                 <div className="container">
                     <div className="row justify-content-center mb-4 pb-3 border-bottom">
@@ -53,7 +53,7 @@ export default function Home() {
                             <h1 className="display-4">
                                 Feminino
                                 <If condition={filter}>
-                                    <small>&nbsp;\&nbsp;{filter==='clothes'? 'Roupas' : 'Acessórios'}</small>
+                                    <small className="home__section-label">&nbsp;\&nbsp;{filter==='clothes'? 'Roupas' : 'Acessórios'}</small>
                                 </If>
                             </h1>
                         </div>

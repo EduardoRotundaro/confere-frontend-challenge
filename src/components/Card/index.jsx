@@ -42,18 +42,20 @@ function Card({
             <div className="card-body">
                 <p className="card-text text-center">{name}</p>
                 <If condition={discountPercentage}>
-                    <h3><span className="badge badge-success">{discountPercentage} OFF</span></h3>
+                    <h3><span className="badge badge-success">{discountPercentage}&nbsp;OFF</span></h3>
                 </If>
                 <div className="mb-2">
                     {renderSizes()}
                 </div>
                 <h5 className="card-title">
                     <If condition={regularPrice!==actualPrice}>
-                        <span className="">{regularPrice}</span>
+                        <span className="line-through mr-2">{regularPrice}</span>
                     </If>
-                    {actualPrice}
+                    <span>{actualPrice}</span>
                 </h5>
-                <p className="card-text">{installments}</p>
+                <p className="card-text">
+                    <span className="card__price">{installments}</span>
+                </p>
                 <If condition={!available}>
                     <div className="alert alert-warning text-center" role="alert">
                         Indisponível
