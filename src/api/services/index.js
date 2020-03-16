@@ -12,8 +12,8 @@ export function fetchProducts(category) {
         try {
             const products = await axios.get(DB_URL);
             let response = products.data.products;
-            if(category=='clothes') response = products.data.products.filter((p) => !PRODUCTS_FILTER.ACCESSORIES.includes(p.code_color));
-            else if (category=='accessories') response = products.data.products.filter((p) => PRODUCTS_FILTER.ACCESSORIES.includes(p.code_color));
+            if(category==='clothes') response = products.data.products.filter((p) => !PRODUCTS_FILTER.ACCESSORIES.includes(p.code_color));
+            else if (category==='accessories') response = products.data.products.filter((p) => PRODUCTS_FILTER.ACCESSORIES.includes(p.code_color));
             resolve(response.sort(sortByAvailability));
         } catch (error) {
             reject(error);
@@ -27,7 +27,7 @@ export function getProductById(id) {
         try {
             const products = await fetchProducts();
             const response = products.filter((product) => product.code_color===id)[0];
-            resolve(response.sort(sortByAvailability));
+            resolve(response);
         } catch (error) {
             reject(error);
         }

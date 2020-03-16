@@ -18,12 +18,12 @@ function Card({
 }) {
     const [image, setImage] = useState(null);
 
-    useEffect(() => {
-        async function checkifImageURLisValid() {
-            let url = await isAValidImageURL(imageUrl)? imageUrl : productPhotoFallback;
-            setImage(url);
-        }
+    async function checkifImageURLisValid() {
+        let url = await isAValidImageURL(imageUrl)? imageUrl : productPhotoFallback;
+        setImage(url);
+    }
 
+    useEffect(() => {
         checkifImageURLisValid();
     }, []);
 
