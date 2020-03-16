@@ -20,8 +20,8 @@ function Card({
 
     function renderSizes() {
         return sizes.map(({size, available}) => {
-            if(available) return (<span className="badge badge-primary" key={size}>{size}</span>);
-            else return (<span className="badge badge-light" key={size}>{size}</span>);
+            if(available) return (<span className="badge badge-primary m-1" key={size}>{size}</span>);
+            else return (<span className="badge badge-light m-1" key={size}>{size}</span>);
         });
     }
 
@@ -42,18 +42,22 @@ function Card({
             <div className="card-body">
                 <p className="card-text text-center">{name}</p>
                 <If condition={discountPercentage}>
-                    <h3><span className="badge badge-success">{discountPercentage}</span></h3>
+                    <h3><span className="badge badge-success">{discountPercentage} OFF</span></h3>
                 </If>
-                <div>
+                <div className="mb-2">
                     {renderSizes()}
                 </div>
                 <h5 className="card-title">
-                    <span>{regularPrice}</span>
+                    <If condition={regularPrice!==actualPrice}>
+                        <span className="">{regularPrice}</span>
+                    </If>
                     {actualPrice}
                 </h5>
                 <p className="card-text">{installments}</p>
                 <If condition={!available}>
-                    <p className="card-text">Indisponível</p>
+                    <div className="alert alert-warning text-center" role="alert">
+                        Indisponível
+                    </div>
                 </If>
                 <p>
                     <Link to={`/product/${id}`} className="btn btn-block btn-primary">

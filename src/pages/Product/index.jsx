@@ -65,7 +65,7 @@ export default function Product() {
             <button 
                 key={size}
                 type="button" 
-                className={`btn btn${selectedSize===size? '-' : '-outline-'}primary`}
+                className={`btn btn${selectedSize===size? '-' : '-outline-'}primary m-1`}
                 disabled={!available}
                 onClick={() => selectSize(size)}
             >
@@ -93,28 +93,40 @@ export default function Product() {
         <main>
             <section>
                 <div className="container">
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-center mt-4">
                         <div className="col-xl-12">
-                            <div className="card">
+                            <div className="card shadow-sm">
                                 <div className="row no-gutters">
                                     <div className="col-xl-4">
                                         <img src={productImage} className="card-img" alt="..." />
                                     </div>
                                     <div className="col-xl-8">
                                         <div className="card-body">
-                                            <p className="card-text"><small className="text-muted">{product.name}</small></p>
-                                            <p className="card-text">{product.discount_percentage}</p>
-                                            <h5 className="card-title">{product.actualPrice}</h5>
-                                            <h5 className="card-title">{product.regularPrice}</h5>
+                                            <h3 className="display-5">
+                                                {product.name}
+                                            </h3>
+                                            <If condition={product.actualPrice!==product.regularPrice}>
+                                                de <span>{product.regularPrice}</span>
+                                            </If>
+                                            <p>
+                                                por <span>{product.actualPrice}</span>
+                                            </p>
+                                            <If condition={product.discountPercentage}>
+                                                <h3><span className="badge badge-success">{product.discountPercentage} OFF</span></h3>
+                                            </If>
                                             <p className="card-text">{product.installments}</p>
-                                            <p className="card-text">{product.color}</p>
+                                            <p className="card-text">
+                                                <strong>Cor:</strong><br />
+                                                {product.color}
+                                            </p>
                                             <If condition={product.onSale}>
+                                                <strong>Tamanhos:</strong><br/>
+                                                <If condition={submited && !selectedSize}>
+                                                    <span className="text-danger">Selecione um tamanho</span>
+                                                </If>
                                                 <div className="form-group">
                                                     {renderProductSizesOptions()}
-                                                </div>
-                                            </If>
-                                            <If condition={submited && !selectedSize}>
-                                                <div className="text-danger">Selecione um tamanho</div>
+                                                </div>                                                
                                             </If>
                                             <If condition={product.onSale}>
                                                 <button 

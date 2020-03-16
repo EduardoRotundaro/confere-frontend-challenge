@@ -7,7 +7,7 @@ export default function cartReducer(state=INITIAL_STATE, action) {
         case 'cart/ADD_ITEM':
             return { ...state, products: [...state.products, ...[action.payload]] };
         case 'cart/REMOVE_ITEM':
-            return { ...state, products: state.products.filter((item)=> item.id!==action.payload) };
+            return { ...state, products: state.products.filter((item)=> item.codeColor!==action.payload) };
         case 'cart/CLEAR':
             return INITIAL_STATE;
         default:

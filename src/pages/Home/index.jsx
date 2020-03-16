@@ -23,7 +23,7 @@ export default function Home() {
 
     function renderProducts() {
         return products && products.map((product) => (
-            <div className="col-xl-4" key={product.code_color}>
+            <div className="col-xl-4 mb-4" key={product.code_color}>
                 <Card
                     id={product.code_color} 
                     imageUrl={product.image} 
@@ -48,7 +48,7 @@ export default function Home() {
         <main>
             <section>
                 <div className="container">
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-center mb-4 pb-3 border-bottom">
                         <div className="col-12">
                             <h1 className="display-4">
                                 Feminino
@@ -60,7 +60,7 @@ export default function Home() {
                         <div className="col-xl-4">
                             <button 
                                 type="button" 
-                                className="btn btn-sm btn-block btn-primary"
+                                className="btn btn-sm btn-block btn-primary mb-2"
                                 onClick={() => fetchData('clothes')}
                             >
                                 Roupas
@@ -69,7 +69,7 @@ export default function Home() {
                         <div className="col-xl-4">
                             <button 
                                 type="button" 
-                                className="btn btn-sm btn-block btn-primary"
+                                className="btn btn-sm btn-block btn-primary mb-2"
                                 onClick={() => fetchData('accessories')}
                             >
                                 Acessórios
@@ -78,7 +78,7 @@ export default function Home() {
                         <div className="col-xl-4">
                             <button 
                                 type="button" 
-                                className="btn btn-sm btn-block btn-primary"
+                                className="btn btn-sm btn-block btn-primary mb-2"
                                 onClick={() => fetchData()}
                             >
                                 Ver tudo

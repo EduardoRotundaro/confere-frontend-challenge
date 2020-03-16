@@ -39,7 +39,7 @@ export default function Cart() {
         <main>
             <section>
                 <div className="container">
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-center mb-4 mt-4">
                         <div className="col-xl-6">
                             <button 
                                 type="button"
@@ -58,19 +58,23 @@ export default function Cart() {
                     </If>
                     <If condition={!products.length}>
                         <div className="row justify-content-center">
-                            <div className="col-12 text-center">O carrinho está vazio</div>
+                            <div className="col-12 text-center">
+                                <div className="alert alert-warning" role="alert">
+                                    O carrinho está vazio
+                                </div>
+                            </div>
                         </div>
                     </If>
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-center mb-4 mt-4 border-top">
                         <div className="col-12 text-right">
-                            {getTotalPrice()}
+                            <h1 className="">{getTotalPrice()}</h1>
                         </div>
                     </div>
                     <div className="row justify-content-center">
-                        <div className="col-xl-6">
+                        <div className="col-xl-6 mb-1">
                             <Link to="home" className="btn btn-block btn-primary">Continuar comprando</Link>
                         </div>
-                        <div className="col-xl-6">
+                        <div className="col-xl-6 mb-1">
                             <button 
                                 type="button" 
                                 className="btn btn-block btn-success"
