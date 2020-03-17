@@ -23,7 +23,7 @@ export default function Home() {
 
     function renderProducts() {
         return products && products.map((product) => (
-            <div className="col-xl-3 mb-4" key={product.code_color}>
+            <div className="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4" key={product.code_color}>
                 <Card
                     id={product.code_color} 
                     imageUrl={product.image} 
@@ -57,7 +57,7 @@ export default function Home() {
                                 </If>
                             </h1>
                         </div>
-                        <div className="col-xl-4">
+                        <div className="col-12 col-lg-4 col-xl-4">
                             <button 
                                 type="button" 
                                 className="btn btn-sm btn-block btn-primary mb-2"
@@ -66,7 +66,7 @@ export default function Home() {
                                 Roupas
                             </button>
                         </div>
-                        <div className="col-xl-4">
+                        <div className="col-12 col-lg-4 col-xl-4">
                             <button 
                                 type="button" 
                                 className="btn btn-sm btn-block btn-primary mb-2"
@@ -75,7 +75,7 @@ export default function Home() {
                                 Acessórios
                             </button>
                         </div>
-                        <div className="col-xl-4">
+                        <div className="col-12 col-lg-4 col-xl-4">
                             <button 
                                 type="button" 
                                 className="btn btn-sm btn-block btn-primary mb-2"

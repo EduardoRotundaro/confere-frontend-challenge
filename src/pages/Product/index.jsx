@@ -86,10 +86,10 @@ export default function Product() {
                         <div className="col-xl-12">
                             <div className="card shadow-sm">
                                 <div className="row no-gutters">
-                                    <div className="col-xl-4">
+                                    <div className="col-12 col-md-4 col-xl-4">
                                         <img src={productImage} className="card-img" alt={product.name} />
                                     </div>
-                                    <div className="col-xl-8">
+                                    <div className="col-12 col-md-8 col-xl-8">
                                         <div className="card-body">
                                             <h4>{product.name}</h4>
                                             <If condition={product.discountPercentage}>
