@@ -1,0 +1,12 @@
+.product{
+    &__price{
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
+    &__old-price{
+        font-size: 1.2rem;
+    }
+    &__installments{
+        font-size: 1.2rem;
+    }
+}

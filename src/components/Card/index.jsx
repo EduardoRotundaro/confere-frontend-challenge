@@ -61,14 +61,10 @@ function Card({
                     </p>
                 </If>
                 <If condition={!available}>
-                    <div className="alert alert-warning text-center mt-4" role="alert">
-                        Indisponível
-                    </div>
+                    <div className="alert alert-warning text-center mt-4" role="alert">Indisponível</div>
                 </If>
                 <p>
-                    <Link to={`/product/${id}`} className="btn btn-block btn-primary">
-                        Ver mais
-                    </Link>
+                    <Link to={`/product/${id}`} className="btn btn-block btn-primary">Ver mais</Link>
                 </p>
             </div>
         </div>

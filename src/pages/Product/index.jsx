@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Redirect, useParams, Link} from 'react-router-dom';
+import {Redirect, useParams} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import If from '../../components/If';
 import {getProductById} from '../../api/services';
@@ -91,7 +91,7 @@ export default function Product() {
     }
 
     return redirect? (<Redirect to="/cart" />) : (
-        <main>
+        <main className="product">
             <section>
                 <div className="container">
                     <div className="row justify-content-center mt-4">
@@ -108,12 +108,12 @@ export default function Product() {
                                                 <h3><span className="badge badge-success">{product.discountPercentage} OFF</span></h3>
                                             </If>
                                             <If condition={product.actualPrice!==product.regularPrice}>
-                                                de <span>{product.regularPrice}</span>
+                                                de&nbsp;<span className="product__old-price">{product.regularPrice}</span>
                                             </If>
                                             <p>
-                                                por <span>{product.actualPrice}</span>
+                                                por&nbsp;<span className="product__price">{product.actualPrice}</span>
                                             </p>
-                                            <p className="card-text">{product.installments}</p>
+                                            <p className="card-text">em&nbsp;até&nbsp;<span className="product__installments">{product.installments}</span></p>
                                             <p className="card-text">
                                                 <strong>Cor:</strong><br />
                                                 {product.color}

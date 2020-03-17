@@ -59,9 +59,7 @@ export default function Cart() {
                     <If condition={!products.length}>
                         <div className="row justify-content-center">
                             <div className="col-12 text-center">
-                                <div className="alert alert-warning" role="alert">
-                                    O carrinho está vazio
-                                </div>
+                                <div className="alert alert-warning" role="alert">O carrinho está vazio</div>
                             </div>
                         </div>
                     </If>
