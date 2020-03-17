@@ -25,6 +25,9 @@ export default function App() {
                         <Route exact path="/">
                             <Redirect to="/home" />
                         </Route>
+                        <Route path="/confere-frontend-challenge">
+                            <Redirect to="/home" />
+                        </Route>
                         <Route path="/home">
                             <Home />
                         </Route>
