@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/confere-frontend-challenge/static/css/main.07f08c0a.chunk.css",
+    "main.js": "/confere-frontend-challenge/static/js/main.b0527f45.chunk.js",
+    "main.js.map": "/confere-frontend-challenge/static/js/main.b0527f45.chunk.js.map",
+    "runtime-main.js": "/confere-frontend-challenge/static/js/runtime-main.0c722cb0.js",
+    "runtime-main.js.map": "/confere-frontend-challenge/static/js/runtime-main.0c722cb0.js.map",
+    "static/js/2.bb168b58.chunk.js": "/confere-frontend-challenge/static/js/2.bb168b58.chunk.js",
+    "static/js/2.bb168b58.chunk.js.map": "/confere-frontend-challenge/static/js/2.bb168b58.chunk.js.map",
+    "index.html": "/confere-frontend-challenge/index.html",
+    "precache-manifest.d3a1f16071101eea40e217414e3b868d.js": "/confere-frontend-challenge/precache-manifest.d3a1f16071101eea40e217414e3b868d.js",
+    "service-worker.js": "/confere-frontend-challenge/service-worker.js",
+    "static/css/main.07f08c0a.chunk.css.map": "/confere-frontend-challenge/static/css/main.07f08c0a.chunk.css.map",
+    "static/js/2.bb168b58.chunk.js.LICENSE.txt": "/confere-frontend-challenge/static/js/2.bb168b58.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/confere-frontend-challenge/static/media/fontawesome-webfont.fee66e71.woff",
+    "static/media/productPhotoFallback.png": "/confere-frontend-challenge/static/media/productPhotoFallback.e4982e4a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0c722cb0.js",
+    "static/js/2.bb168b58.chunk.js",
+    "static/css/main.07f08c0a.chunk.css",
+    "static/js/main.b0527f45.chunk.js"
+  ]
+}
