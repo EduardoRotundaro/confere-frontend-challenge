@@ -3,9 +3,8 @@ import {Redirect, useParams} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import If from '../../components/If';
 import {getProductById} from '../../api/services';
-import {updatePageTitle} from '../../other/utils';
+import {updatePageTitle, isAValidImageURL, showErrorToast} from '../../other/utils';
 import {addItemToCartStore} from '../../redux/actions/cart';
-import {isAValidImageURL} from '../../other/utils';
 import productPhotoFallback from '../../assets/images/productPhotoFallback.png';
 
 export default function Product() {
@@ -41,7 +40,7 @@ export default function Product() {
                     discountPercentage: data.discount_percentage,
                 });
             } catch (error) {
-                console.log(error.message);   
+                showErrorToast();  
             }
         }
 

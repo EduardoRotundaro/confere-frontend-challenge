@@ -3,7 +3,7 @@ import Card from '../../components/Card';
 import If from '../../components/If';
 import Loader from '../../components/Loader';
 import {fetchProducts} from '../../api/services';
-import {updatePageTitle} from '../../other/utils';
+import {updatePageTitle, showErrorToast} from '../../other/utils';
 
 export default function Home() {
     const [products, updateProducts] = useState(null);
@@ -17,7 +17,7 @@ export default function Home() {
             updateProducts(products);
         } catch (error) {
             updateProducts([]);
-            console.error(error.message);
+            showErrorToast();
         }
     }
 

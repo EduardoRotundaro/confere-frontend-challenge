@@ -3,10 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import If from '../../components/If';
 import CartItem from '../../components/CartItem';
-import {
-    clearCartStore,
-    removeItemOfCartStore,
-} from '../../redux/actions/cart';
+import {clearCartStore, removeItemOfCartStore} from '../../redux/actions/cart';
 
 export default function Cart() {
     const dispatch = useDispatch()
