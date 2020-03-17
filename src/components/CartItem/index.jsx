@@ -17,26 +17,26 @@ function CartItem({
     }
 
     return (
-        <div className="media mb-4 p-2">
-            <img src={image} className="mr-3" alt={name} />
-            <div className="media-body">
-                <h5>{name}</h5>
-                <h3 className="display-5">{actualPrice}</h3>
-                <p className="card-text">
+        <div className="media mb-4">
+            <img src={image} className="mr-4" alt={name} />
+            <div className="media-body p-2">
+                <small>{name}</small>
+                <h4>{actualPrice}</h4>
+                <small className="card-text">
                     <strong>Tamanho: </strong>{size}
-                </p>
+                </small>
                 <div>
                     <button 
                         type="button" 
-                        className="btn btn-sm btn-danger m-1 mr-3"
+                        className="btn btn-sm btn-danger m-1"
                         onClick={() => decreaseQuantity()}
                     >
                         <i className="fa fa-minus"></i>
                     </button>
-                    <strong>{quantity}</strong>
+                    <strong className="bg-light p-1 ml-2 mr-2">{quantity}</strong>
                     <button 
                         type="button" 
-                        className="btn btn-sm btn-success m-1 ml-3"
+                        className="btn btn-sm btn-success m-1"
                         onClick={() => setQuantity(quantity + 1)}
                     >
                         <i className="fa fa-plus"></i>

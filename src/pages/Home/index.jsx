@@ -23,7 +23,7 @@ export default function Home() {
 
     function renderProducts() {
         return products && products.map((product) => (
-            <div className="col-xl-4 mb-4" key={product.code_color}>
+            <div className="col-xl-3 mb-4" key={product.code_color}>
                 <Card
                     id={product.code_color} 
                     imageUrl={product.image} 

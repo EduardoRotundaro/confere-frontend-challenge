@@ -67,7 +67,7 @@ export default function Cart() {
                     </If>
                     <div className="row justify-content-center mb-4 mt-4 border-top">
                         <div className="col-12 text-right">
-                            <h1 className="">{getTotalPrice()}</h1>
+                            <h2 className="">{getTotalPrice()}</h2>
                         </div>
                     </div>
                     <div className="row justify-content-center">

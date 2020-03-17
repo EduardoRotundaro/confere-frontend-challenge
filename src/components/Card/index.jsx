@@ -40,24 +40,28 @@ function Card({
                 <img src={image} className="card-img-top" alt={name} />
             </Link>
             <div className="card-body">
-                <p className="card-text text-center">{name}</p>
+                <p className="card-text text-center">
+                    <small>{name}</small>
+                </p>
                 <If condition={discountPercentage}>
                     <h3><span className="badge badge-success">{discountPercentage}&nbsp;OFF</span></h3>
                 </If>
-                <div className="mb-2">
-                    {renderSizes()}
-                </div>
-                <h5 className="card-title">
-                    <If condition={regularPrice!==actualPrice}>
-                        <span className="line-through mr-2">{regularPrice}</span>
-                    </If>
-                    <span>{actualPrice}</span>
-                </h5>
-                <p className="card-text">
-                    <span className="card__price">{installments}</span>
-                </p>
+                <If condition={available}>
+                    <div className="mb-2">
+                        {renderSizes()}
+                    </div>
+                    <h5 className="card-title">
+                        <If condition={regularPrice!==actualPrice}>
+                            <span className="line-through mr-2">{regularPrice}</span>
+                        </If>
+                        <span>{actualPrice}</span>
+                    </h5>
+                    <p className="card-text">
+                        <span className="card__price">{installments}</span>
+                    </p>
+                </If>
                 <If condition={!available}>
-                    <div className="alert alert-warning text-center" role="alert">
+                    <div className="alert alert-warning text-center mt-4" role="alert">
                         Indisponível
                     </div>
                 </If>
