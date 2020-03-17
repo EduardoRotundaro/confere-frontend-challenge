@@ -25,31 +25,20 @@ export default function Product() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const {
-                    name,
-                    code_color,
-                    color,
-                    on_sale,
-                    regular_price,
-                    actual_price,
-                    discount_percentage,
-                    installments,
-                    image,
-                    sizes
-                } = await getProductById(id);
-                updatePageTitle(name);
-                checkifImageURLisValid(image);
+                const data = await getProductById(id);
+                updatePageTitle(data.name);
+                checkifImageURLisValid(data.image);
                 setProduct({
-                    name,
-                    color,
-                    installments,
-                    image,
-                    sizes,
-                    codeColor: code_color,
-                    onSale: on_sale,
-                    regularPrice: regular_price,
-                    actualPrice: actual_price,
-                    discountPercentage: discount_percentage,
+                    name: data.name,
+                    color: data.color,
+                    installments: data.installments,
+                    image: data.image,
+                    sizes: data.sizes,
+                    codeColor: data.code_color,
+                    onSale: data.on_sale,
+                    regularPrice: data.regular_price,
+                    actualPrice: data.actual_price,
+                    discountPercentage: data.discount_percentage,
                 });
             } catch (error) {
                 console.log(error.message);   
@@ -141,7 +130,7 @@ export default function Product() {
                                                     Indisponível!
                                                 </div>
                                                 <div className="alert alert-light text-center shadow-sm" role="alert">
-                                                    <i className="fa fa-envelope"></i> Avise-me quando chegar
+                                                    <i className="fa fa-envelope"></i>&nbsp;Avise-me quando chegar
                                                 </div>
                                             </If>
                                         </div>

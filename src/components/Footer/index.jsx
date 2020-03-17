@@ -1,5 +1,5 @@
 import React from 'react';
-import {APP_VERSION, GITHUB_PROFILE} from '../../other/constants';
+import {APP_VERSION} from '../../other/constants';
 
 export default function Footer() {
     return (
@@ -9,7 +9,7 @@ export default function Footer() {
                     <div className="col-12 text-center">COPYRIGHT © 2020 Todos os direitos reservados.</div>
                     <div className="col-12 text-center"><strong>CNPJ: 33.825.161/0001-73</strong></div>
                     <div className="col-12 text-center">
-                        Feito por <a href={GITHUB_PROFILE} target="_blank" rel="noopener noreferrer">Eduardo H. Rotundaro</a>
+                        Feito por <a href="https://github.com/EduardoRotundaro" target="_blank" rel="noopener noreferrer">Eduardo H. Rotundaro</a>
                     </div>
                     <div className="col-12 text-center">
                         <small>v{APP_VERSION}</small>

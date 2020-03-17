@@ -16,7 +16,7 @@ export default function Cart() {
 
     function renderList() {
         return products && products.map(({name, image, actualPrice, size, codeColor}, index)=> (
-            <div className="col-12" key={codeColor}>
+            <div className="col-12" key={`${codeColor}${index}`}>
                 <CartItem 
                     id={codeColor}
                     image={image}

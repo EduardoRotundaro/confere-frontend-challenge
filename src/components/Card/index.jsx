@@ -19,10 +19,9 @@ function Card({
     const [image, setImage] = useState(null);
 
     function renderSizes() {
-        return sizes.map(({size, available}) => {
-            if(available) return (<span className="badge badge-primary m-1" key={size}>{size}</span>);
-            else return (<span className="badge badge-light m-1" key={size}>{size}</span>);
-        });
+        return sizes.map(({size, available}) => (
+            <span className={`badge badge-${available? 'primary' : 'light'} m-1`} key={size}>{size}</span>
+        ));
     }
 
     useEffect(() => {
@@ -63,9 +62,7 @@ function Card({
                 <If condition={!available}>
                     <div className="alert alert-warning text-center mt-4" role="alert">Indisponível</div>
                 </If>
-                <p>
-                    <Link to={`/product/${id}`} className="btn btn-block btn-primary">Ver mais</Link>
-                </p>
+                <Link to={`/product/${id}`} className="btn btn-block btn-primary mt-2 mb-2">Ver mais</Link>
             </div>
         </div>
     );
