@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/confere-frontend-challenge/precache-manifest.d3a1f16071101eea40e217414e3b868d.js"
+  "/confere-frontend-challenge/precache-manifest.9ad8c30a91ea08996aba310e02fb8732.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0b6a1af0353f68b10f70e703caae1685",
+    "revision": "311cc280928400d6278239066121fc22",
     "url": "/confere-frontend-challenge/index.html"
   },
   {
-    "revision": "e1ed2a3f1bd1267f9a00",
+    "revision": "1ad7bc5080945764d0ad",
     "url": "/confere-frontend-challenge/static/css/main.07f08c0a.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/confere-frontend-challenge/static/js/2.bb168b58.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e1ed2a3f1bd1267f9a00",
-    "url": "/confere-frontend-challenge/static/js/main.b0527f45.chunk.js"
+    "revision": "1ad7bc5080945764d0ad",
+    "url": "/confere-frontend-challenge/static/js/main.47ddf5be.chunk.js"
   },
   {
     "revision": "3709894e756bdbb1b652",
